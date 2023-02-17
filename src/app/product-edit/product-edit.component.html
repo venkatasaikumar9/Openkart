@@ -1,0 +1,72 @@
+<!--
+Form - Its way to collect user inputs (user data, user opinion ) and 
+use that data for further purposes
+
+Angular makes it easy to retrieve data from forms and use it
+It also helps use to validate the form data
+
+Angular provides two approches to handling user input through forms:
+
+1. Template driven approach 
+2. Reactive approach ( Form is created programatically and synchronized with DOM)
+
+-->
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" [disabled]="!productForm.valid">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text"  class="form-control" formControlName="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" type="text" rows="6" class="form-control" formControlName="description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input id="price" type="text"  class="form-control" formControlName="price">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input id="brand" type="text"  class="form-control" formControlName="brand">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label for="image">Image URL</label>
+                        <input id="image" type="text"  class="form-control" formControlName="imagePath" #imagePath>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="form-group">
+                      <img [src]="imagePath.value" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
