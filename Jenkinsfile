@@ -25,7 +25,7 @@ pipeline{
                 }
             }
 
-            stage('Docker Check'){
+            stage('DockerCheck'){
                 steps{
                     script{
                         echo "checking docker ............."
