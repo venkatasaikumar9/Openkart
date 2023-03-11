@@ -25,7 +25,7 @@ pipeline{
                 }
             }
 
-            stage('DockerCheck'){
+            stage('Docker Check'){
                 steps{
                     script{
                         echo "checking docker ............."
@@ -34,6 +34,26 @@ pipeline{
                     }
                 }
             }
+
+            stage('Docker Build'){
+                steps{
+                    script{
+                        def customImage = docker.build("venkatasaikumar9/openkart_jenkins:1.1")
+                        echo "pushing the image verion 1.1"
+
+                        withCredentials([usernamePassword(credentialsId: 'venkatasaikumar9dockerid', usernameVariable:'venkatasaikumar9dockeridUser', passwordVariable:'venkatasaikumar9dockeridPassword')])
+                        {
+                            sh "docker login -u ${env.venkatasaikumar9dockeridUser} -p ${env.venkatasaikumar9dockeridPassword}"
+                            sh "docker push venkatasaikumar9/openkart_jenkins:1.1"
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+
     }
 }
-   
