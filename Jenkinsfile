@@ -15,6 +15,16 @@ pipeline{
             
             }
 
+            stage('DockerSetup'){
+                steps{
+                    script{
+                        def dockerHome = tool 'myDocker'
+                        echo ">>>>>>>>>${dockerHome}"
+                        env.PATH = "${dockerHome}/bin:${env.PATH}"
+                    }
+                }
+            }
+
             stage('Docker Check'){
                 steps{
                     script{
