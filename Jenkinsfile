@@ -31,7 +31,7 @@ pipeline{
                         echo "checking docker ............."
                         sh "docker --version"
                         sh "whoami"
-                        docker.image('venkatasaikumar9/openkart:1.0').withRun('-p 4200:4200')
+                        docker.image('venkatasaikumar9/openkart:1.0').withRun('-p 4200:4200') {c ->}
                     }
                 }
             }
