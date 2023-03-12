@@ -35,21 +35,8 @@ pipeline{
                 }
             }
 
-            stage('Docker Build'){
-                steps{
-                    script{
-                        def customImage = docker.build("venkatasaikumar9/openkart_jenkins:2.1")                        
-                    }
-                }
-            }
-
-            stage('Docker Run'){
-                steps{
-                    script{
-                        def docker.run("venkatasaikumar9/openkart_jenkins:2.1")
-                    }
-                }
-            }
+           docker.image('venkatasaikumar9/openkart:1.0').withRun('-e "VENKATASAIKUMAR9/OPENKART_ROOT_PASSWORD=my-secret-pw"' + ' -p 4200:4200') { c ->
+                                           
 
 
 
