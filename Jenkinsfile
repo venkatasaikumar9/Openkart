@@ -32,6 +32,8 @@ pipeline{
                         sh "docker --version"
                         sh "whoami"
                         docker.image('venkatasaikumar9/openkart:1.0').withRun('-p 4200:4200') {c ->}
+                        sh 'while ! venkatasaikumar9/openkart ping -h0.0.0.0 --silent; do sleep 1; done'
+                        sh 'make check'
                     }
                 }
             }
