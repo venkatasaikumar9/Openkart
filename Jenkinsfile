@@ -32,7 +32,7 @@ pipeline{
                         sh "docker --version"
                         sh "whoami"
                         docker.image('venkatasaikumar9/openkart:1.0')
-                        echo "Image.run(['venkatasaikumar9/openkart:1.0', '-p 4200:4200'])"
+                        
                     }
                 }
             }
