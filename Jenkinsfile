@@ -40,7 +40,7 @@ pipeline{
             stage('Docker Deploy'){
                 steps{
                     script{
-                        sh "docker run -p 4200:4200 venkatasaikumar9/openkart:1.0"
+                        sh "docker run -it --name angular -p 4200:4200 venkatasaikumar9/openkart:1.0"
                     }
                 }
             }
