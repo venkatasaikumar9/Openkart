@@ -47,7 +47,7 @@ pipeline{
             stage('Docker Deploy'){
                 steps{
                     script{
-                        sh "docker run -it --name angular -p 4200:4200 venkatasaikumar9/openkart:3.0"
+                        sh "docker run --name angular -p 4200:4200 venkatasaikumar9/openkart:3.0"
                         echo "Openkart angular project is running on localhost ip address with port map of 4200"
                     }
                 }
