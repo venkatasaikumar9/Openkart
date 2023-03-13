@@ -30,9 +30,7 @@ pipeline{
                     script{
                         echo "checking docker ............."
                         sh "docker --version"
-                        sh "whoami"
-                        docker.image('venkatasaikumar9/openkart:1.0')
-                        
+                        sh "whoami"                    
                     }
                 }
             }
