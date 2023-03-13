@@ -39,6 +39,7 @@ pipeline{
                 steps{
                     script{
                         sh "docker build -t venkatasaikumar9/openkart:3.0 ."
+                        echo "Openkart:3.0 image is successfully built"
                     }
                 }
             }
@@ -47,6 +48,7 @@ pipeline{
                 steps{
                     script{
                         sh "docker run -it --name angular -p 4200:4200 venkatasaikumar9/openkart:3.0"
+                        echo "Openkart angular project is running on localhost ip address with port map of 4200"
                     }
                 }
             }
